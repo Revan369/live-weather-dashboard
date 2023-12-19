@@ -65,18 +65,23 @@ searchButton.on("click", function (event) {
 
       const currentWDiv = $("#today");
       const currentWTitle = $("<h2>").text(currentLocation + " " + currentDate);
-      const currentWInfo = $("<div>").addClass("weather-info");
+      
+      // Create an image element for the weather icon
+      const currentWeatherIcon = $("<img>").attr({
+        src: `https://openweathermap.org/img/w/${currentIconId}.png`,
+        alt: "Weather Icon",
+      });
 
-      // Create elements for each piece of information
-      const tempInfo = $("<p>").text("Temperature: " + currentTempC + "°C");
-      const windInfo = $("<p>").text("Wind Speed: " + currentWind + " KPH");
-      const humidityInfo = $("<p>").text("Humidity: " + currentHumidity + "%");
+      const currentWUl = $("<ul>");
+      const currentWTempC = $("<li>").text("Temp: " + currentTempC + "°C");
+      const currentWWind = $("<li>").text("Wind: " + currentWind + " KPH");
+      const currentWHumidity = $("<li>").text("Humidity: " + currentHumidity + "%");
 
-      // Append information elements to the weather info div
-      currentWInfo.append(tempInfo, windInfo, humidityInfo);
+      // Append the weather icon to the currentWTitle
+      currentWTitle.append(currentWeatherIcon);
 
-      // Empty the current weather div and append the title and weather info
-      currentWDiv.empty().append(currentWTitle, currentWInfo);
+      currentWUl.append(currentWTempC, currentWWind, currentWHumidity);
+      currentWDiv.empty().append(currentWTitle, currentWUl);
 
       // CREATE HISTORY BUTTON FOR USER SEARCH
       const historyBtn = $("<button>").text(userSearch);
@@ -109,18 +114,24 @@ searchButton.on("click", function (event) {
         const dayTempC = (dayTempK - 273.15).toFixed(2);
         const dayWind = dayData.wind.speed;
         const dayHumidity = dayData.main.humidity;
+        const dayIconId = dayData.weather[0].icon;
 
         // Create a container for the day
-        const dayContainer = $("<div>").addClass("forecast-day");
+        const dayContainer = $("<div>").addClass("day-container");
+
+        // Create an image element for the weather icon
+        const dayWeatherIcon = $("<img>").attr({
+          src: `https://openweathermap.org/img/w/${dayIconId}.png`,
+          alt: "Weather Icon",
+        });
+
         const dayTitle = $("<h5>").text(dayDate);
+        const dayTempLi = $("<li>").text("Temp: " + dayTempC + "°C");
+        const dayWindLi = $("<li>").text("Wind: " + dayWind + " KPH");
+        const dayHumidityLi = $("<li>").text("Humidity: " + dayHumidity + "%");
 
-        // Create elements for each piece of information
-        const tempInfo = $("<p>").text("Temperature: " + dayTempC + "°C");
-        const windInfo = $("<p>").text("Wind Speed: " + dayWind + " KPH");
-        const humidityInfo = $("<p>").text("Humidity: " + dayHumidity + "%");
-
-        // Append information elements to the day container
-        dayContainer.append(dayTitle, tempInfo, windInfo, humidityInfo);
+        // Append elements to the day container
+        dayContainer.append(dayWeatherIcon, dayTitle, dayTempLi, dayWindLi, dayHumidityLi);
 
         // Append the day container to the forecast div
         forecastWDiv.append(dayContainer);
