@@ -1,0 +1,60 @@
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-white {
+    color: #fff;
+  }
+  
+  .bg-dark {
+    background-color: #343a40;
+  }
+  
+  .weather-header {
+    padding: 1rem 0;
+  }
+  
+  .weather-search {
+    width: 80%;
+  }
+  
+  .search-button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .weather-hr {
+    border-top: 1px solid #fff;
+  }
+  
+  .list-group {
+    margin-top: 1rem;
+  }
+  
+  #today, #forecast {
+    background-color: #fff;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Add more styles based on your design requirements */
+  
