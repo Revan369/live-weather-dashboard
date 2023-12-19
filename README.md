@@ -37,7 +37,7 @@ The application keeps track of your search history, allowing you to quickly acce
 
 ## Deployment
 
-The application is deployed and can be accessed [here](#https://revan369.github.io/live-weather-dashboard/).
+The application is deployed and can be accessed [here](https://revan369.github.io/live-weather-dashboard/).
 
 ## Screenshots
 
